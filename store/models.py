@@ -89,10 +89,10 @@ class Cart(models.Model):
 
     is_active=models.BooleanField(default=True)
 
-    # @property
-    # def cart_total(self):
+    @property
+    def cart_total(self):
 
-    #     return self.basket_items.filter(is_order_placed=False).values("project_object__price").aggregate(total=Sum("project_object__price")).get("total")
+        return self.basket_items.filter(is_order_placed=False).values("project_object__price").aggregate(total=Sum("project_object__price")).get("total")
 
 
 class CartItems(models.Model):

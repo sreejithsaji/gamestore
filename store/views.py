@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 
 from django.contrib import messages
 
+from decouple import config
+
 from django.db.models import Sum
 
 from django.urls import reverse_lazy
@@ -121,25 +123,41 @@ class AddToCartView(View):
 
         return redirect("index")
 
-KEY_SECRET="xbuagFqBjqwAaS3LTyMYbOXw"
 
-KEY_ID="rzp_test_Vx5KAZZFwUNrAq" 
-import razorpay
 class MyCartView(View):
 
     def get(self,request,*args,**kwargs):
 
         qs=request.user.basket.basket_items.filter(is_order_placed=False)
-          
 
-        print("====================================",qs)
-        t=request.user.basket.basket_items.filter(is_order_placed=False).values("project_object__price").aggregate(total=Sum("project_object__price")).get("total")
+        total=request.user.basket.cart_total
 
-        # ================================
+        return render(request,'cart.html',{"cartitems":qs,"total":total,})
+
+
+
+class CartDeleteView(View):
+
+    def get(self,request,*args,**kwargs):
+
+        id=kwargs.get("pk")
+
+        CartItems.objects.get(id=id).delete()
+
+        return redirect("cart")
+
+
+KEY_SECRET=config("KEY_SECRET")
+
+KEY_ID=config("KEY_ID") 
+import razorpay
+class CheckOutView(View):
+
+    def get(self,request,*args,**kwargs):
 
         client = razorpay.Client(auth=(KEY_ID, KEY_SECRET))
         
-        total=t*100
+        total=request.user.basket.cart_total*100
 
         data = { "amount": total, "currency": "INR", "receipt": "order_rcptid_11" }
 
@@ -148,7 +166,7 @@ class MyCartView(View):
         #create order object
 
            
-        order_summary_obj=OrderSummary.objects.create(user_object=request.user,order_id=payment.get("id"),total=t)
+        order_summary_obj=OrderSummary.objects.create(user_object=request.user,order_id=payment.get("id"),total=request.user.basket.cart_total)
            
         #    product_obj=ci.product_object
 
@@ -173,22 +191,7 @@ class MyCartView(View):
             "order_id":payment.get("id")
         }
 
-
-        # =====================================
-
-        return render(request,'cart.html',{"cartitems":qs,"total":total,"context":context})
-
-
-
-class CartDeleteView(View):
-
-    def get(self,request,*args,**kwargs):
-
-        id=kwargs.get("pk")
-
-        CartItems.objects.get(id=id).delete()
-
-        return redirect("cart")
+        return render(request,'payment.html',{"context":context})
 
 
 from django.views.decorators.csrf import csrf_exempt

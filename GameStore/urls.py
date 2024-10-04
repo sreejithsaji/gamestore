@@ -30,6 +30,7 @@ urlpatterns = [
     path('project/cart/add/<int:pk>/',views.AddToCartView.as_view(),name="add-cart"),
     path('project/cart/',views.MyCartView.as_view(),name='cart'),
     path('project/cart/delete/<int:pk>/',views.CartDeleteView.as_view(),name="cart-delete"),
+    path('payment/',views.CheckOutView.as_view(),name='razor'),
     path("payment/verification/",views.PaymentVerificationView.as_view(),name="payment-verfiy")
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
