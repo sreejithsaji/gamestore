@@ -50,6 +50,12 @@ class Project(models.Model):
 
     description=models.TextField()
 
+    developer=models.CharField(max_length=200)
+
+    publisher=models.CharField(max_length=200)
+
+    release_year=models.CharField(max_length=200)
+
     tag_objects=models.ManyToManyField(Tag)
 
     owner=models.ForeignKey(User,on_delete=models.CASCADE,related_name="projects")
