@@ -25,9 +25,9 @@
                   fill="black"
                 ></path>
               </svg> -->
-              <i class="fa-brands fa-2x fa-playstation"></i>
+              <i class="fa-brands fa-google-play fa-2x fa-beat-fade" style="color: #65e674;"></i>
             </span>
-            <span class="font-bold">STUDIO</span>
+            <span class="font-bold">GAMESTORE</span>
           </div>
           <div class="hidden grow items-start lg:flex">
             <ul class="ml-12 inline-flex space-x-8">
@@ -41,10 +41,10 @@
               </li>
               <li>
                 <a
-                  href=""
+                  href="{%url 'order-summary' %}"
                   class="text-sm font-semibold text-gray-800 hover:text-gray-900"
                 >
-                  About
+                  MyOrder
                 </a>
               </li>
               <li>
@@ -59,29 +59,23 @@
             </ul>
           </div>
           <div class="hidden lg:block">
-            <button
-              type="button"
-              class="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Button text
-            </button>
-          </div>
-          <!-- <div class="hidden lg:block">
-            <a href="" 
-              type="button"
-              class="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              project add
-          </a>
-          </div> -->
-          <div class="hidden lg:block">
             <a 
               href="{% url 'edit' request.user.profile.id%}"
               
               class="text-sm font-semibold text-gray-800 hover:text-gray-900"
             >
-            <i class="fa-solid fa-address-card"></i>
+            <i class="fa-solid fa-1x fa-user-large"></i>
               profile
+          </a>
+          </div>
+          <div class="hidden lg:block ml-2">
+            <a 
+              href=""
+              
+              class="text-sm font-semibold text-gray-800 hover:text-gray-900"
+            >
+            <i class="fa-solid fa-1x fa-right-from-bracket"></i>
+              logout
           </a>
           </div>
           <div class="lg:hidden">

@@ -237,7 +237,13 @@ class PaymentVerificationView(View):
         return redirect("index")
 
 
+class PurchaseView(View):
 
+    def get(self,request,*args,**kwargs):
+
+        qs=OrderSummary.objects.filter(user_object=request.user,is_paid=True).order_by('-created_date')
+
+        return render(request,'order_summary.html',{"orders":qs})
 
 
 
