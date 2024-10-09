@@ -8,13 +8,13 @@ from django.db.models import Sum
 
 from django.urls import reverse_lazy
 
-from django.views.generic import View,TemplateView,UpdateView,DetailView
+from django.views.generic import View,TemplateView,UpdateView,DetailView,ListView
 
 from store.forms import SignUpForm,SignInForm,UserProfileForm
 
 from store.models import UserProfile,Project,CartItems,OrderSummary,Cart
 
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 
 
 class SignUpview(View):
@@ -71,6 +71,14 @@ class SignInView(View):
                 return redirect('index')
 
         return render(request,'login.html',{'form':form_instance}) 
+    
+class SignOutView(View):
+
+    def get(self,request,*args,**kwargs):
+
+        logout(request)
+
+        return redirect('signin')
 
 
 class IndexView(View):
@@ -247,7 +255,21 @@ class PurchaseView(View):
 
 
 
+class SearchView(ListView):
+    model = Project
+    template_name = 'result.html'
+    context_object_name = 'all_search_results'
 
+    def get_queryset(self):
+        result = super(SearchView, self).get_queryset()
+        query = self.request.GET.get('search')
+        if query:
+            product = Project.objects.filter(title__contains=query)
+            result = product
+        else:
+            result = None
+
+        return result
 
 
 

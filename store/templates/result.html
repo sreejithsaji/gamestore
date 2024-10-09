@@ -1,0 +1,59 @@
+{% extends 'base.html'%}
+
+{%block main_block%}
+
+<!-- <h1>{{request.user}}</h1> -->
+
+<!-- {{projects}} -->
+
+<div class="mx-auto grid w-full max-w-7xl items-center space-y-4 px-2 py-10 md:grid-cols-2 md:gap-6 md:space-y-0 lg:grid-cols-4">
+  {%for project in all_search_results %}
+  <div class="rounded-md border border-slate-200 ">
+    <img class="aspect-[16/9] w-full rounded-md md:aspect-auto md:h-[400px] lg:h-[300px]" src="{{project.game_pic.url}}" alt="image description">
+
+   <div class="p-4">
+     <h1 class="inline-flex items-center text-lg font-semibold text-white">
+       {{project.title}} 
+     </h1>
+     
+     <div class="mt-4">
+ 
+       <!-- disaplying tag objects -->
+       <span class="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
+         {%for t in project.tag_objects.all%}
+ 
+         <span>{{t}}</span>
+         {%endfor%}
+       </span>
+      
+     </div>
+     
+     <div class="mt-5 flex items-center space-x-2">
+       <span class="block text-sm font-semibold text-white">price:</span>
+       <!-- display Price -->
+       <span class="block cursor-pointer rounded-md border border-gray-300 p-1 px-2 text-xs font-medium text-white">
+         {{project.price}}
+       </span>
+     
+     </div>
+     <div class="mt-5 flex items-center space-x-2">
+     <a href="{%url 'project-detail' project.id%}"
+       type="button"
+       class="mt-4 w-full rounded-sm bg-slate-600 px-2 py-1.5 text-sm font-semibold text-white text-center shadow-sm hover:bg-green/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+     >
+       view more
+     </a>
+    </div>
+   </div>
+ </div>
+ 
+ 
+ 
+ 
+ 
+  {%endfor%}
+ 
+ </div>
+
+{%endblock%}
+

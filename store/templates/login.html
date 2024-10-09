@@ -1,26 +1,60 @@
 <!DOCTYPE html>
+{%load static%}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/796e5da87d.js" crossorigin="anonymous"></script>
 
 </head>
-<body>
-    <div class="container">
-        <div class="row ">
-            <div class="col-3"></div>
-            <div class="col-6 border b-5 shadow">
-                <h1>LOGIN</h1>
-                <form action="" method="post">
-                    {%csrf_token%}
-                    {{form}}
-                    <button class="btn btn-outline-success">Register</button>
-                </form>
+<body bgcolor="#18191c">
+
+  <div class="flex flex-wrap">
+    <div class="flex w-full flex-col md:w-1/2">
+      <div class="flex justify-center pt-12 md:-mb-24 md:justify-start md:pl-12">
+        <a href="#" class="border-b-amber-50 border-b-4 pb-2 text-2xl font-bold text-white"><i class="fa-brands fa-google-play fa-spin"></i> GAMESTORE</a>
+      </div>
+      <div class="lg:w-[28rem] mx-auto my-auto flex flex-col justify-center pt-8 md:justify-start md:px-6 md:pt-0">
+        <p class="text-left text-3xl font-bold text-white">Welcome back,</p>
+        <p class="mt-2 text-left text-white">Welcome back, please enter your details.</p>        
+        <form class="flex flex-col pt-3 md:pt-8" method="post">
+          {%csrf_token%}
+          <div class="flex flex-col pt-4">
+            <div class="focus-within:border-b-gray-500 relative flex overflow-hidden border-b-2 transition">
+              {{form.username}}
+              <!-- <input type="username" id="login-email" class="w-full flex-1 appearance-none border-gray-300 bg-white px-4 py-2 text-base text-gray-700 placeholder-gray-400 focus:outline-none" placeholder="Email" /> -->
             </div>
-            <div class="col-3"></div>
+          </div>
+          <div class="mb-12 flex flex-col pt-4">
+            <div class="focus-within:border-b-gray-500 relative flex overflow-hidden border-b-2 transition">
+              {{form.password}}
+              <!-- <input type="password" id="login-password" class="w-full flex-1 appearance-none border-gray-300 bg-white px-4 py-2 text-base text-gray-700 placeholder-gray-400 focus:outline-none" placeholder="Password" /> -->
+            </div>
+          </div>
+          <button type="submit" class="w-full rounded-lg bg-blue-700 px-4 py-2 text-center text-base font-semibold text-white shadow-md ring-gray-500 ring-offset-2 transition focus:ring-2">Log in</button>
+        </form>
+        <div class="py-12 text-center">
+          <p class="whitespace-nowrap text-white">
+            Don't have an account?
+            <a href="{%url 'signup'%}" class="underline-offset-4 font-semibold text-white underline">Sign up for free.</a>
+          </p>
         </div>
+      </div>
     </div>
+    <div class="pointer-events-none relative hidden h-screen select-none bg-black md:block md:w-1/2">
+      <div class="absolute bottom-0 z-10 px-8 text-white opacity-100">
+        <p class="mb-8 text-3xl font-semibold leading-10">ikka ee webpage nte ishwarayam</p>
+        <p class="mb-4 text-3xl font-semibold">John Elmond</p>
+        <p class="">Founder, Emogue</p>
+        <p class="mb-7 text-sm opacity-70">Web Design Agency</p>
+      </div>
+      <img class="-z-1 absolute top-0 h-full w-full object-cover opacity-90" src="{% static 'image/WhatsApp Image 2024-10-09 at 12.31.30_71f4ff06.jpg'%}" />
+    </div>
+  </div>
+  
 </body>
 </html>
+
+  

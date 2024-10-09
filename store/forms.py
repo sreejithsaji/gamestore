@@ -8,8 +8,8 @@ from store.models import UserProfile,Project
 
 class SignUpForm(UserCreationForm):
 
-    password1=forms.CharField(widget=forms.PasswordInput(attrs={"class":"form-control mb-2"}))
-    password2=forms.CharField(widget=forms.PasswordInput(attrs={"class":"form-control mb-2"}))
+    password1=forms.CharField(widget=forms.PasswordInput(attrs={"class":"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"}))
+    password2=forms.CharField(widget=forms.PasswordInput(attrs={"class":"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"}))
 
 
     class Meta:
@@ -20,16 +20,16 @@ class SignUpForm(UserCreationForm):
 
         widgets={
 
-            "username":forms.TextInput(attrs={"class":"form-control mb-2"}),
-            "email":forms.EmailInput(attrs={"class":"form-control mb-2"}),
+            "username":forms.TextInput(attrs={"class":"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"}),
+            "email":forms.EmailInput(attrs={"class":"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"}),
         }
 
 
 
 class SignInForm(forms.Form):
 
-    username=forms.CharField(widget=forms.TextInput(attrs={"class":"form-control mb-2"}))
-    password=forms.CharField(widget=forms.PasswordInput(attrs={"class":"form-control mb-2"}))        
+    username=forms.CharField(widget=forms.TextInput(attrs={"class":"w-full flex-1 appearance-none border-gray-300 bg-white px-4 py-2 text-base text-gray-700 placeholder-gray-400 focus:outline-none","placeholder":"Enter Your Username"}))
+    password=forms.CharField(widget=forms.PasswordInput(attrs={"class":"w-full flex-1 appearance-none border-gray-300 bg-white px-4 py-2 text-base text-gray-700 placeholder-gray-400 focus:outline-none","placeholder":"Enter Your Password"}))        
 
 
 

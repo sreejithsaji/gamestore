@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/',views.SignUpview.as_view(),name='signup'),
     path('',views.SignInView.as_view(),name='signin'),
+    path('logout',views.SignOutView.as_view(),name='signout'),
     path('index/',views.IndexView.as_view(),name='index'),
     path('profile/<int:pk>/change/',views.ProfileUpdateView.as_view(),name='edit'),
     path('project/detail/<int:pk>/',views.ProjectDetailView.as_view(),name='project-detail'),
@@ -33,5 +34,6 @@ urlpatterns = [
     path('payment/',views.CheckOutView.as_view(),name='razor'),
     path("payment/verification/",views.PaymentVerificationView.as_view(),name="payment-verfiy"),
     path('order/summary',views.PurchaseView.as_view(),name='order-summary'),
+    path('search/',views.SearchView.as_view(),name="search")
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

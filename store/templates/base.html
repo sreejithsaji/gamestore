@@ -25,7 +25,7 @@
                   fill="black"
                 ></path>
               </svg> -->
-              <i class="fa-brands fa-google-play fa-2x fa-beat-fade" style="color: #65e674;"></i>
+              <i class="fa-brands fa-google-play fa-2x fa-beat-fade"></i>
             </span>
             <span class="font-bold">GAMESTORE</span>
           </div>
@@ -58,11 +58,17 @@
               </li>
             </ul>
           </div>
-          <div class="hidden lg:block">
+          <div class="">
+           <form  class="mr-12 mb-2.5"method="GET" action="{% url 'search' %}" >
+             <input  class="mt-4  w-/4 rounded-sm bg-slate-300 px-2 py-1.5 text-sm font-semibold text-gray-950 text-center shadow-sm hover:bg-green/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black placeholder-gray-900" type="search" name="search" placeholder="search games">
+             <button  class="bg-gray-600 px-2 py-1 rounded-sm" type="submit"><i class="fa-solid fa-magnifying-glass"></i>search</button>
+           </form>
+          </div>
+          <div class="hidden lg:block"> 
             <a 
               href="{% url 'edit' request.user.profile.id%}"
               
-              class="text-sm font-semibold text-gray-800 hover:text-gray-900"
+              class="text-sm font-semibold text-gray-800 hover:text-gray-900 ml-14"
             >
             <i class="fa-solid fa-1x fa-user-large"></i>
               profile
@@ -70,7 +76,7 @@
           </div>
           <div class="hidden lg:block ml-2">
             <a 
-              href=""
+              href="{%url 'signout'%}"
               
               class="text-sm font-semibold text-gray-800 hover:text-gray-900"
             >
@@ -78,24 +84,7 @@
               logout
           </a>
           </div>
-          <div class="lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="h-6 w-6 cursor-pointer"
-            >
-              <line x1="4" y1="12" x2="20" y2="12"></line>
-              <line x1="4" y1="6" x2="20" y2="6"></line>
-              <line x1="4" y1="18" x2="20" y2="18"></line>
-            </svg>
-          </div>
+          
         </div>
       </div>
 
