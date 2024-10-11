@@ -4,9 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/796e5da87d.js" crossorigin="anonymous"></script>
+
+
 </head>
 <body>
-    <button id="rzp-button1">Pay with Razorpay</button>
+
+    <section class="bg-gray-50 dark:bg-gray-900">
+        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+            <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"><i class="fa-brands fa-google-play "></i> GAMESTORE</a>
+            <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                        Razorpay
+                    </h1>
+                    <p class="text-justify text-white">
+
+                        SECTION 4.03. Billing and Payment Terms. (a) All amounts due under this Agreement shall be billed and paid for in the following manner (i) each Party shall invoice the other Party on a monthly basis (such invoice to set forth a description of the Services provided and reasonable documentation to support the charges there on which invoice and documentation shall be in the same level of detail and in accordance with the procedures for invoicing as provided to the Provider’s other businesses) for all Services that such Party delivered or caused to be delivered during the preceding month, (ii) each such invoice shall be payable within 30 days after the date of the invoice and (iii) payment of all invoices in respect of the Services provided hereunder shall be made in U.S. Dollars
+                    </p>
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                              <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required="">
+                            </div>
+                            <div class="ml-3 text-sm">
+                              <label for="terms" class="font-light text-gray-500 dark:text-gray-300">I accept the <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</a></label>
+                            </div>
+                        </div>
+                        <button id="rzp-button1" class="w-full text-black  border bg-green-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Pay with Razorpay</button>
+                        
+            
+                </div>
+            </div>
+        </div>
+      </section>
+
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
     var options = {

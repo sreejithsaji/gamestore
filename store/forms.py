@@ -42,8 +42,8 @@ class UserProfileForm(forms.ModelForm):
         fields=["bio","profile_pic"]
 
         widgets={
-            "bio":forms.TextInput(attrs={"class":"w-full border p-2 my-3"}),
-            "profile_pic":forms.FileInput(attrs={"class":"w-full border  py-2"})
+            "bio":forms.TextInput(attrs={"class":"mt-3 w-full divide-y rounded bg-gray-100 py-2 px-3 text-gray-600 shadow-sm hover:text-gray-700 hover:shadow mb-3"}),
+            "profile_pic":forms.FileInput(attrs={"class":"mt-3 w-full divide-y rounded bg-gray-100 py-2 px-3 text-gray-600 shadow-sm hover:text-gray-700 hover:shadow"})
         }
 
 class ProjectForm(forms.ModelForm):
