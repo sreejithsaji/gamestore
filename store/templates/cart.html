@@ -83,15 +83,15 @@
       </p>
     </div>
     <div class="flex justify-end space-x-4">
-      <button
+      <a href="{%url 'index'%}"
         type="button"
-        class="rounded-md border border-gray-600 px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
+        class="rounded-md  bg-gray-600 border-gray-600 px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
       >
         Back to shop
-      </button>
+      </a>
       <a href="{%url 'razor'%}"
         type="button" 
-        class="rounded-md border border-gray-600 px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+        class="rounded-md  bg-gray-600 border-gray-600 px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
       >
         Checkout
      </a>
@@ -103,7 +103,7 @@
                               
 {%else%}
 
-<center><h1 class="text-3xl font-bold text-white mt-30">Your cart is Empty</h1></center>
+<center><h1 class="text-3xl font-bold text-white mt-16">Your cart is Empty</h1></center>
 
 {%endif%}
 

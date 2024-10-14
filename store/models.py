@@ -154,21 +154,3 @@ def create_basket(sender,instance,created,*args,**kwargs):
         Cart.objects.create(owner=instance)
 post_save.connect(sender=User,receiver=create_basket)
 
-
-# from django.core.validators import MaxValueValidator,MinValueValidator
-
-# class Reviews(models.Model):
-
-#     project_object=models.ForeignKey(Project,on_delete=models.CASCADE,related_name="project_review")
-
-#     user_object=models.ForeignKey(User,on_delete=models.CASCADE)
-
-#     comment=models.TextField()
-
-#     rating=models.PositiveIntegerField(default=1,validators=[MinValueValidator(1),MaxValueValidator(5)])
-
-#     created_date=models.DateTimeField(auto_now_add=True)
-
-#     updated_date=models.DateTimeField(auto_now=True)
-
-#     is_active=models.BooleanField(default=True)

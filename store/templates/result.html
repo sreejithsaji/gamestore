@@ -5,7 +5,7 @@
 <!-- <h1>{{request.user}}</h1> -->
 
 <!-- {{projects}} -->
-
+{%if all_search_results%}
 <div class="mx-auto grid w-full max-w-7xl items-center space-y-4 px-2 py-10 md:grid-cols-2 md:gap-6 md:space-y-0 lg:grid-cols-4">
   {%for project in all_search_results %}
   <div class="rounded-md border border-slate-200 ">
@@ -54,6 +54,14 @@
   {%endfor%}
  
  </div>
+
+ {%else%}
+
+<center><h1 class="text-3xl font-bold text-white mt-16">No Game Found</h1></center>
+
+{%endif%}
+
+
 
 {%endblock%}
 

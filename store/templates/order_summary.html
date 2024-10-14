@@ -54,7 +54,7 @@
                 <div class="flex flex-1 items-stretch">
                   <div class="flex-shrink-0">
                     <!-- {%video p.thumbnail '100x100'%} -->
-                    <img class="aspect-[16/9] w-full rounded-md md:aspect-auto md:h-[100px] lg:h-[300px]" src="{{p.game_pic.url}}" alt="image description">
+                    <img class="aspect-[16/9] w-full rounded-md md:aspect-auto md:h-[100px] lg:h-[200px]" src="{{p.game_pic.url}}" alt="image description">
 
                   </div>
                   <div class="ml-5 flex flex-col justify-between">
@@ -95,18 +95,13 @@
             </ul>
             <hr class="my-8 border-t border-t-gray-200" />
             <div class="space-x-4">
-              <button
+              <a href="{%url 'index'%}"
                 type="button"
                 class="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
-                View Order
-              </button>
-              <button
-                type="button"
-                class="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-              >
-                View Invoice
-              </button>
+                Back To Shop
+             </a>
+              
             </div>
           </div>
         </div>

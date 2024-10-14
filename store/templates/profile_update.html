@@ -4,7 +4,8 @@
 
 <div class=" max-w flex justify-center items-center mt-20">
     <div class="rounded-lg border bg-white px-4 pt-8 pb-10 shadow-lg">
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
+      {%csrf_token%}
       <div class="relative mx-auto w-36 rounded-full">
         <!-- <span class="absolute right-0 m-3 h-3 w-3 rounded-full bg-green-500 ring-2 ring-green-300 ring-offset-2"></span> -->
         <img class="mx-auto h-auto w-full rounded-full" src="{{request.user.profile.profile_pic.url}}" alt="" />
